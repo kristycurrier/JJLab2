@@ -24,5 +24,13 @@ namespace LabJJ2.Models
         [Range(0, 9999999999999999.99, ErrorMessage = "Please enter a valid price with only two decimal places")]
         public decimal Price { get; set; }
 
+        [Required(ErrorMessage ="Please select one!")]
+        public Fun ProductFun { get; set; }
+    }
+    public enum Fun
+    {
+        Fun,
+        Nope,
+        Undecided
     }
 }
