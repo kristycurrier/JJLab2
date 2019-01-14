@@ -19,7 +19,6 @@ namespace LabJJ2.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Maybe save this?
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
             }
 
