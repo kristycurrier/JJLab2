@@ -10,7 +10,8 @@ namespace LabJJ2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToRoute(new { controller = "Products", action = "Index" });
+            
         }
 
         public ActionResult About()
