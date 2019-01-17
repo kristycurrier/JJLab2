@@ -10,6 +10,8 @@
 
 @ViewBag.Message
 
+<div>@TempData["DataSaved"]</div>
+
 @using (Html.BeginForm("Edit", "Products", FormMethod.Post))
 {
 <div class="form-group">
@@ -28,13 +30,16 @@
         @Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
-        @Html.DropDownList("ProductFun", new SelectList(Enum.GetValues(typeof(Fun))), "Fun or Not?", new {@class = "form-control"} )
-        @Html.ValidationMessageFor(x => x.ProductFun, "", new { @class = "text-danger"})
+        @Html.DropDownList("ProductFun", new SelectList(Enum.GetValues(typeof(Fun))), "Fun or Not?", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ProductFun, "", new { @class = "text-danger" })
     </div>
-    
+
     <button type="submit" class="btn btn-success">Submit</button>
 }
-
+@if (Session["LatestSave"] != null)
+{
+<div>Last save was at @Session["LatestSave"]</div>
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -19,7 +19,10 @@ namespace LabJJ2.Controllers
         {
             if (ModelState.IsValid)
             {
+                TempData["DataSaved"] = "You successfully saved the product";
+                Session["LatestSave"] = DateTime.Now.ToShortDateString();
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
+
             }
 
             return View("Index", model);
